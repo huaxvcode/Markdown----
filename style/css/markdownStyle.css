@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: 'FiraCode', '微软雅黑';
 }
 
 .body {
@@ -14,6 +15,7 @@
 
 .article {
   width: var(--article-width);
+  min-width: var(--article-min-width);
   background-color: var(--article-bgc);
   margin-top: var(--article-margin-top);
   margin-bottom: var(--article-margin-bottom);
@@ -153,8 +155,12 @@
   margin-top: var(--blockquote-margin-top);
 }
 
-.blockquote > .p:last-child {
+.blockquote > *:last-child {
   margin-bottom: 0;
+}
+
+.blockquote > *:first-child {
+  margin-top: 0;
 }
 
 .blockquote > .p {
@@ -202,6 +208,7 @@
   color: var(--li-icon-font-color);
   text-align: center;
   line-height: var(--li-icon-line-height);
+  font-size: var(--li-icon-font-size);
 
   /* flex 布局时，可能会出现拥挤导致的固定宽度的盒子被挤小的问题，需要设置伸缩比率为 0，让它不伸缩 */
   flex-shrink: 0;
@@ -220,6 +227,19 @@
   margin-top: var(--ol-ul-margin-top);
   margin-bottom: var(--ol-ul-margin-top);
 }
+
+.ol > .li:last-child > .liContent {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.liContent > *:last-child {
+    margin-bottom: 0;
+}
+
+/* .liContent > *:first-child {
+    margin-top: 0;
+} */
 
 .nextLine {
   height: var(--nextLine-height);

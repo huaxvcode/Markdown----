@@ -4,6 +4,7 @@
 
 :root {
   --article-width: 820px;
+  
   --article-bgc: #212529;
 
   --article-margin-top: 30px;
@@ -13,6 +14,18 @@
   --article-padding-right: 30px;
   --article-padding-top: 20px;
   --article-padding-bottom: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+    :root {
+        --article-min-width: 820px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --article-min-width: 95%;
+    }
 }
 
 :root {
@@ -31,7 +44,7 @@
   --h2-margin-bottom: var(--margin-start-end);
   --h2-margin-top: 40px;
 
-  --h2-font-size: 36px;
+  --h2-font-size: 32px;
   --h2-letter-spacing: 1px;
   --h2-font-color: white;
   --h2-font-weight: unset;
@@ -43,7 +56,7 @@
   --h3-margin-bottom: var(--margin-start-end);
   --h3-margin-top: 40px;
 
-  --h3-font-size: 30px;
+  --h3-font-size: 25px;
   --h3-letter-spacing: 1px;
   --h3-font-color: white;
   --h3-font-weight: unset;
@@ -55,7 +68,7 @@
   --h4-margin-bottom: var(--margin-start-end);
   --h4-margin-top: 40px;
 
-  --h4-font-size: 25px;
+  --h4-font-size: 19px;
   --h4-letter-spacing: 1px;
   --h4-font-color: white;
   --h4-font-weight: unset;
@@ -67,7 +80,7 @@
   --h5-margin-bottom: var(--margin-start-end);
   --h5-margin-top: 40px;
 
-  --h5-font-size: 20px;
+  --h5-font-size: 16px;
   --h5-letter-spacing: 1px;
   --h5-font-color: white;
   --h5-font-weight: unset;
@@ -79,7 +92,7 @@
   --h6-margin-bottom: var(--margin-start-end);
   --h6-margin-top: 40px;
 
-  --h6-font-size: 15px;
+  --h6-font-size: 12px;
   --h6-letter-spacing: 1px;
   --h6-font-color: white;
   --h6-font-weight: unset;
@@ -160,6 +173,7 @@
   --li-icon-size: calc(var(--li-font-size) * var(--li-font-height));
   --li-icon-bgc: var(--body-bgc);
   --li-icon-font-color: var(--p-font-color);
+  --li-icon-font-size: var(--p-font-size);
   --li-icon-margin-right: 0px;
   --li-icon-margin-left: 20px;
   --li-icon-line-height: var(--li-icon-size);

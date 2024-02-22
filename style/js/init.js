@@ -99,7 +99,6 @@ let a_SrcClick = () => {
 
 let showImage = () => {
     let imgs = document.querySelectorAll(".img");
-
     for (let i = 0; i < imgs.length; i++) {
         let src = imgs[i].getAttribute("src");
         if (src == null) continue;
