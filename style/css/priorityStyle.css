@@ -1,0 +1,17 @@
+@font-face {
+    font-family: FiraCode;
+    src: url(../font/FiraCode-Regular-1.ttf);
+}
+
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.margin-start-end {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+:root {
+    --margin-start-end: 20px;
+}
