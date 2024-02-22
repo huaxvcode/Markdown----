@@ -100,18 +100,22 @@ let a_SrcClick = () => {
 let showImage = () => {
     let imgs = document.querySelectorAll(".img");
     for (let i = 0; i < imgs.length; i++) {
-        let src = imgs[i].getAttribute("src");
-        if (src == null) continue;
-        let len = window.getComputedStyle(imgs[i]).width;
-        len = len.substring(0, len.length - 2);
-        var img = new Image();
-        img.src = src;
-        img.onload = () => {
-            imgs[i].style.backgroundImage = `url(${src})`;
-            let f = img.width / img.height;
-            imgs[i].style.width = Math.min(img.width, len) + "px";
-            imgs[i].style.height = img.height * Math.min(img.width, len) / img.width + "px";
+        let fun = (e) => {
+            let src = e.getAttribute("src");
+            if (src == null) return;
+            e.setAttribute("style", "width: 100%;");
+            let len = window.getComputedStyle(e).width;
+            len = len.substring(0, len.length - 2);
+            var img = new Image();
+            img.src = src;
+            img.onload = () => {
+                e.style.backgroundImage = `url(${src})`;
+                let f = img.width / img.height;
+                e.style.width = Math.min(img.width, len) + "px";
+                e.style.height = Math.min(img.width, len) / f + "px";
+            };
         };
+        fun(imgs[i]);
     }
 };
 
@@ -120,6 +124,9 @@ let main = () => {
     initUl();
     a_SrcClick();
     showImage();
+    window.onresize = () => {
+        showImage();
+    };
 };
 
 export {
