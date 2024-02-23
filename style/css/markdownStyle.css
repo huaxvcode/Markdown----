@@ -356,14 +356,66 @@
 
 .table {
   max-width: 100%;
+  margin-top: var(--margin-start-end);
+  margin-bottom: var(--margin-start-end);
 }
 
 .tr {
   display: flex;
+  max-width: 100%;
 }
 
 .th, .tb {
-  color: white;
   padding: 5px;
-  border: 1px solid;
+  border-left: var(--table-line-weight) var(--table-line-style) var(--table-line-color);
+  border-bottom: var(--table-line-weight) var(--table-line-style) var(--table-line-color);
+}
+
+.tr:first-child > * {
+  border-top: var(--table-line-weight) var(--table-line-style) var(--table-line-color);
+}
+
+.tr > *:last-child {
+  border-right: var(--table-line-weight) var(--table-line-style) var(--table-line-color);
+}
+
+
+.th, .tb {
+  display: flex;
+  align-items: center;
+}
+
+.tr {
+  background-color: var(--tr-bgc);
+}
+
+.tr:hover {
+  background-color: var(--tr-hover-bgc);
+  transition: all 400ms;
+}
+/* .th:hover {
+  background-color: var(--th-hover-bgc);
+  transition: all 400ms;
+}
+.tb:hover {
+  background-color: var(--tb-hover-bgc);
+  transition: all 400ms;
+} */
+
+.th {
+  color: var(--th-font-color);
+  font-weight: var(--th-font-weight);
+  font-size: var(--th-font-size);
+  background-color: var(--th-bgc);
+}
+
+.tb {
+  color: var(--tb-font-color);
+  font-weight: var(--tb-font-weight);
+  font-size: var(--tb-font-size);
+  background-color: var(--tb-bgc);
+}
+
+.trSonContent {
+  width: 100%;
 }

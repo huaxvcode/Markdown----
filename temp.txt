@@ -385,6 +385,50 @@
                 <div class="h3">分隔线</div>
                 <div class="img" src="./static/image/25.png"></div>
                 <div class="line"></div>
+
+<div class="table">
+                    <div class="tr">
+                        <div class="th" style="text-align: center;">姓名</div>
+                        <div class="th" style="text-align: center;">性别</div>
+                        <div class="th" style="text-align: center;">其他名称</div>
+                        <div class="th" style="text-align: center;">登场作品</div>
+                        <div class="th" style="text-align: center;">人物属性</div>
+                        <div class="th" style="text-align: center;">人物外貌</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb" style="text-align: center;">丛雨</div>
+                        <div class="tb" style="text-align: center;">女</div>
+                        <div class="tb" style="text-align: center;">ムラサメ</div>
+                        <div class="tb" style="text-align: center;">《千恋万花》</div>
+                        <div class="tb" style="text-align: center;">傲娇,萝莉</div>
+                        <div class="tb" style="text-align: center;">绿发,红瞳</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb" style="text-align: center;">朝武芳乃</div>
+                        <div class="tb" style="text-align: center;">女</div>
+                        <div class="tb" style="text-align: center;">ともたけ よしの</div>
+                        <div class="tb" style="text-align: center;">《千恋万花》</div>
+                        <div class="tb" style="text-align: center;">巫女</div>
+                        <div class="tb" style="text-align: center;">蓝瞳,白发,双马尾</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb" style="text-align: center;">蕾娜·列支敦瑙尔</div>
+                        <div class="tb" style="text-align: center;">女</div>
+                        <div class="tb" style="text-align: center;">レナ・リヒテナウアー</div>
+                        <div class="tb" style="text-align: center;">《千恋万花》</div>
+                        <div class="tb" style="text-align: center;">元气,天然</div>
+                        <div class="tb" style="text-align: center;">金发,紫瞳,双马尾,巨乳</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb" style="text-align: center;">常陆茉子</div>
+                        <div class="tb" style="text-align: center;">女</div>
+                        <div class="tb" style="text-align: center;">常陸茉子</div>
+                        <div class="tb" style="text-align: center;">《千恋万花》</div>
+                        <div class="tb" style="text-align: center;">忍者,腹黑</div>
+                        <div class="tb" style="text-align: center;">黑发,绿瞳</div>
+                    </div>
+                </div>
+
                 <!-- 代码区 -->
             </div>
         </div>

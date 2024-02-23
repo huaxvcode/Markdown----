@@ -23,7 +23,6 @@ let initOl = () => {
                 t.push(ols[i].classList[j]);
             }
         }
-        console.log(t, ols[i].classList);
         for (let j = 0; j < t.length; j++) {
             ols[i].classList.remove(t[j]);
         }
@@ -55,7 +54,6 @@ let initUl = () => {
                 t.push(uls[i].classList[j]);
             }
         }
-        console.log(t, uls[i].classList);
         for (let j = 0; j < t.length; j++) {
             uls[i].classList.remove(t[j]);
         }
@@ -123,15 +121,60 @@ let initTable = () => {
     let tables = document.querySelectorAll('.table');
     let initSingleTable = (e) => {
         let trs = e.querySelectorAll(".tr");
-        
+        let ls = [];
+        for (let i = 0; i < trs.length; i++) {
+            let tbs = trs[i].querySelectorAll(".tr > *");
+            if (ls.length == 0) ls.push(tbs.length);
+            else {
+                if (ls[ls.length - 1] != tbs.length) return;
+            }
+        }
+        for (let i = 0; i < trs.length; i ++) {
+            let tbs = trs[i].querySelectorAll(".tr > *");
+            for (let j = 0; j < tbs.length; j ++) {
+                tbs[j].innerHTML = `<div class="trSonContent">${tbs[j].innerHTML}</div>`;
+            }
+        }
+        let g = [];
+        for (let i = 0; i < trs.length; i ++) {
+            let tbs = trs[i].querySelectorAll(".tr > *");
+            g[i] = tbs;
+        }
+        let n = ls[0];
+        let m = trs.length;
+        if (m == 0 || n == 0) return;
+        let maxLen = [];
+        for (let i = 0; i < n; i ++) {
+            maxLen[i] = 0;
+            for (let j = 0; j < m; j ++) {
+                let t = window.getComputedStyle(g[j][i]).width;
+                maxLen[i] = Math.max(maxLen[i], parseFloat(t.substring(0, t.length - 2)));
+            }
+        }
+        let sumLen = 0;
+        for (let i = 0; i < n; i ++) sumLen += maxLen[i];
+        let lw = getComputedStyle(document.documentElement).getPropertyValue("--table-line-weight");
+        lw = parseFloat(lw.substring(0, lw.length - 2));
+        sumLen += (10 + lw) * n;
+        sumLen += lw;
+        for (let i = 0; i < m; i ++) trs[i].style.width = sumLen + "px";
+        for (let i = 0; i < n; i ++) {
+            for (let j = 0; j < m; j ++) {
+                g[j][i].style.width = maxLen[i] + "px";
+            }
+        }
+    };
+    for (let i = 0; i < tables.length; i ++) {
+        initSingleTable(tables[i]);
     }
-}
+};
 
 let main = () => {
     initOl();
     initUl();
     a_SrcClick();
     showImage();
+    initTable();
     window.onresize = () => {
         showImage();
     };

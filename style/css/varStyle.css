@@ -24,7 +24,7 @@
 
 @media screen and (max-width: 1000px) {
     :root {
-        --article-min-width: 95%;
+        --article-min-width: 92%;
     }
 }
 
@@ -232,4 +232,33 @@
   --line-margin-top: var(--margin-start-end);
   --line-margin-bottom: var(--margin-start-end);
   --line-color: #37383a;
+}
+
+:root {
+  --table-line-weight: 1px;
+  --table-line-color: #252b31;
+  --table-line-style: solid;
+}
+
+:root {
+  --tr-bgc: var(--article-bgc);
+  --tr-hover-bgc: rgba(56, 56, 56, 0.5);
+}
+
+:root {
+  --th-font-color: var(--p-font-color);
+  --th-font-size: var(--p-font-size);
+  --th-font-weight: bolder;
+  --th-hover-bgc: rgba(56, 56, 56, 0.5);
+  --th-bgc: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+}
+
+:root {
+  --tb-font-color: var(--p-font-color);
+  --tb-font-size: var(--p-font-size);
+  --tb-font-weight: unset;
+  --tb-hover-bgc: rgba(56, 56, 56, 0.5);
+  --tb-bgc: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
 }
