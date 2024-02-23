@@ -1,250 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>从零开始打造 markdown 编译器</title>
-    <link rel="icon" href="./static/image/丛雨.jpg">
-    <link rel="stylesheet" href="./style/css/varStyle.css">
-    <link rel="stylesheet" href="./style/css/priorityStyle.css">
-    <link rel="stylesheet" href="./style/css/markdownStyle.css">
-</head>
-<body>
-<div class="body">
-<div class="article">
-<!-- 代码区 -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>从零开始打造 markdown 编译器</title>
+        <link rel="icon" href="./static/image/丛雨.jpg">
+        <link rel="stylesheet" href="./style/css/varStyle.css">
+        <link rel="stylesheet" href="./style/css/priorityStyle.css">
+        <link rel="stylesheet" href="./style/css/markdownStyle.css">
+    </head>
+    <body>
+        <div class="body">
+            <div class="article">
+                <!-- 代码区 -->
 
-<div class="h1">
-    从零开始打造 markdown 编译器
-</div>
+                <div class="h1">
+                    从零开始打造 markdown 编译器
+                </div>
 
-<div class="h2">
-    为什么会有做这个项目的想法？
-</div>
+                <div class="h2">
+                    为什么会有做这个项目的想法？
+                </div>
 
-<div class="p">
-    这个想法在大一时就有了，之前一直都是用 vscode + mkdoc 做的笔记，在 vscode 里面写 markdown 文档，使用 mkdoc 将 markdown 文档翻译成界面美观的 html 文件，然后将其上传到 github 上就可以在线浏览自己写好的笔记，我觉得这很神奇！它是怎么翻译成 html 文件的？我能不能实现一个？正是这好奇心一直驱使着我，但是由于大二阶段接触到了算法竞赛，该想法一直未能落实
-</div>
+                <div class="p">
+                    这个想法在大一时就有了，之前一直都是用 vscode + mkdoc 做的笔记，在 vscode 里面写
+                    markdown 文档，使用 mkdoc 将 markdown 文档翻译成界面美观的 html 文件，然后将其上传到
+                    github 上就可以在线浏览自己写好的笔记，我觉得这很神奇！它是怎么翻译成 html
+                    文件的？我能不能实现一个？正是这好奇心一直驱使着我，但是由于大二阶段接触到了算法竞赛，该想法一直未能落实
+                </div>
 
-<div class="p">
-    到了大三上学期，终于结束了长达一年半而又残酷的 ACM 竞赛，大二时啥也不懂就单纯算法团队缺人，或许是看了我朋友圈有很多程序设计题，那时我刚好在学 leetcode 热题 100，哈哈哈，就被拉去打比赛了
-</div>
+                <div class="p">
+                    到了大三上学期，终于结束了长达一年半而又残酷的 ACM
+                    竞赛，大二时啥也不懂就单纯算法团队缺人，或许是看了我朋友圈有很多程序设计题，那时我刚好在学 leetcode 热题
+                    100，哈哈哈，就被拉去打比赛了
+                </div>
 
-<div class="p">
-    刚开始打 ICPC 时，就纯头铁，抱着只要能 <div class="strong">签出一道题就算成功</div> 的想法，开始了打铁之旅，当时是和 罗kx(队长)、刘tq 组的队伍，在打预选赛时，试过爆零！什么是爆零，就是比赛 5 个小时一直卡一道题，并且还做不出来，哈哈哈，<div class="em">序列能不能有重复元素？答：没有</div> 好，成功爆零，是个很好的回忆
-</div>
+                <div class="p">
+                    刚开始打 ICPC 时，就纯头铁，抱着只要能 <div class="strong">签出一道题就算成功</div>
+                    的想法，开始了打铁之旅，当时是和 罗kx(队长)、刘tq 组的队伍，在打预选赛时，试过爆零！什么是爆零，就是比赛 5
+                    个小时一直卡一道题，并且还做不出来，哈哈哈，<div class="em">序列能不能有重复元素？答：没有</div>
+                    好，成功爆零，是个很好的回忆
+                </div>
 
-<div class="p">
-    按我的计划，大一应该是探索的阶段，大二是竞赛的过程，大三就应该是项目实践了，大四就“寄”了
-</div>
+                <div class="p">
+                    按我的计划，大一应该是探索的阶段，大二是竞赛的过程，大三就应该是项目实践了，大四就“寄”了
+                </div>
 
-<div class="p">
-    所以在这个寒假，就一直犹豫到底应该学什么，搞什么项目？有没有什么简单的项目？或者问，到底什么样的才算是一个项目？基于自己的算法实现的五子棋算吗？从零开始搭建的 markdown 编译器算吗？网页版的轻量编译器算吗？我都不清楚，到底是学 java 呢，还是学 c++？没有人能告诉我答案，就算有都是成堆的焦虑，学前端？前端已死。学 Java，java 也死。学 c++？看知乎上又说 c++ 能提供的岗位的入门、学历等要求巨高；总结一下感觉就是在说：<div class="ins">啥也不要学！</div> 
-</div>
+                <div class="p">
+                    所以在这个寒假，就一直犹豫到底应该学什么，搞什么项目？有没有什么简单的项目？或者问，到底什么样的才算是一个项目？基于自己的算法实现的五子棋算吗？从零开始搭建的
+                    markdown 编译器算吗？网页版的轻量编译器算吗？我都不清楚，到底是学 java 呢，还是学
+                    c++？没有人能告诉我答案，就算有都是成堆的焦虑，学前端？前端已死。学 Java，java 也死。学
+                    c++？看知乎上又说 c++ 能提供的岗位的入门、学历等要求巨高；总结一下感觉就是在说：<div
+                        class="ins">啥也不要学！</div>
+                </div>
 
-<div class="p">
-    但是这样不行啊，很想找工作赚钱啊兄弟，工作就有工资，有工资就可以买很多的电脑配件，有工资就可以去旅游，有工资就可以去吃好吃的，<div class="del">有工资就可以去京东买女朋友</div>！不满足于当前的学生阶段，毫无经济来源，痛苦不堪，很多的欲望都得不到满足。
-</div>
+                <div class="p">
+                    但是这样不行啊，很想找工作赚钱啊兄弟，工作就有工资，有工资就可以买很多的电脑配件，有工资就可以去旅游，有工资就可以去吃好吃的，<div
+                        class="del">有工资就可以去京东买女朋友</div>！不满足于当前的学生阶段，毫无经济来源，痛苦不堪，很多的欲望都得不到满足。
+                </div>
 
-<div class="h2">
-    为什么学前端？
-</div>
+                <div class="h2">
+                    为什么学前端？
+                </div>
 
-<div class="p">
-    因为前端入门飞快啊，看两三天 y 总的课就可以做出<div class="a" src="https://huaxvcode.github.io/search-nav/">导航栏</div>、<div class="a" src="https://huaxvcode.github.io/snake/">贪吃蛇</div>，再过一天就可以弄<div class="a" src="https://huaxvcode.github.io/fiveChess/">五子棋</div>，再用两三天时间就可以弄出 markdown 编译器的雏形，非常适合萌新入门，基于这么快的入门速度，约等于 0 学习成本，再者前端能够天天看到自己的学习成果，不像算法那样，欸我今天做出了这道题，我感觉我变强了，实力有了显著提升，再奖励多自己一道题，好，做不出，此时就会陷入深深的<div class="ins">自我否定</div>和<div class="ins">自我怀疑</div>，如果此时某位仁兄说：easy！那我可能就直接消沉好一段时间了
-</div>
+                <div class="p">
+                    因为前端入门飞快啊，看两三天 y 总的课就可以做出<div class="a"
+                        src="https://huaxvcode.github.io/search-nav/">导航栏</div>、<div
+                        class="a"
+                        src="https://huaxvcode.github.io/snake/">贪吃蛇</div>，再过一天就可以弄<div
+                        class="a"
+                        src="https://huaxvcode.github.io/fiveChess/">五子棋</div>，再用两三天时间就可以弄出
+                    markdown 编译器的雏形，非常适合萌新入门，基于这么快的入门速度，约等于 0
+                    学习成本，再者前端能够天天看到自己的学习成果，不像算法那样，欸我今天做出了这道题，我感觉我变强了，实力有了显著提升，再奖励多自己一道题，好，做不出，此时就会陷入深深的<div
+                        class="ins">自我否定</div>和<div
+                        class="ins">自我怀疑</div>，如果此时某位仁兄说：easy！那我可能就直接消沉好一段时间了
+                </div>
 
-<div class="img" src="./static/image/我是废物.jpg"></div>
+                <div class="img" src="./static/image/我是废物.jpg"></div>
 
-<div class="p">
-    当然，我学前端，并不意味着我就一定会梭哈前端，正如前面所说的，我对 mkdoc 的翻译功能很好奇，所以就想捣鼓一下，只要这段热血还没有消沉，这份好奇心还没移情别恋时，我会坚持一段时间的
-</div>
+                <div class="p">
+                    当然，我学前端，并不意味着我就一定会梭哈前端，正如前面所说的，我对 mkdoc
+                    的翻译功能很好奇，所以就想捣鼓一下，只要这段热血还没有消沉，这份好奇心还没移情别恋时，我会坚持一段时间的
+                </div>
 
-<div class="h2">
-    你打算怎么实现该项目？
-</div>
+                <div class="h2">
+                    你打算怎么实现该项目？
+                </div>
 
-<div class="p">
-    我将该项目分成了两大模块：
-</div>
+                <div class="p">
+                    我将该项目分成了两大模块：
+                </div>
 
-<div class="ol">
-    <div class="li">前端布局</div>
-    <div class="li">后端翻译</div>
-</div>
+                <div class="ol">
+                    <div class="li">前端布局</div>
+                    <div class="li">后端翻译</div>
+                </div>
 
-<div class="p">
-    现在只实现了最为简单的前端布局这一部分，有关层叠式代码块的实现这一小块内容仍然保留探究，因为不同语言之间的变量、函数、关键字应该如何分配颜色？缩进功能又应该如何实现？需不需要将代码切割成一个一个单词的形式？这些单词又需不需要用单独的 div 标签存储？诸如此类的种种问题，导致我仍然未能立马动工，如果不慎重的思考这一难题，到时候编码就会遇到很多坑爹的 Bug！
-</div>
+                <div class="p">
+                    现在只实现了最为简单的前端布局这一部分，有关层叠式代码块的实现这一小块内容仍然保留探究，因为不同语言之间的变量、函数、关键字应该如何分配颜色？缩进功能又应该如何实现？需不需要将代码切割成一个一个单词的形式？这些单词又需不需要用单独的
+                    div 标签存储？诸如此类的种种问题，导致我仍然未能立马动工，如果不慎重的思考这一难题，到时候编码就会遇到很多坑爹的
+                    Bug！
+                </div>
 
-<div class="h3">
-    关于前端布局的主要思路
-</div>
+                <div class="h3">
+                    关于前端布局的主要思路
+                </div>
 
-<div class="h4">要求：</div>
+                <div class="h4">要求：</div>
 
-<div class="p">
-    必须要有很方便的扩展性，即单独完整的实现 css 样式文件和必须的 js 文件，以这些作为 markdown 主题渲染的核心内容，到时候只要当前目录下存在这两个文件时，所有的 html 文件都能自动的使用这些效果
-</div>
+                <div class="p">
+                    必须要有很方便的扩展性，即单独完整的实现 css 样式文件和必须的 js 文件，以这些作为 markdown
+                    主题渲染的核心内容，到时候只要当前目录下存在这两个文件时，所有的 html 文件都能自动的使用这些效果
+                </div>
 
-<div class="p">
-    关于 css 样式文件，项目需要用到与主题相关的属性值，我都用一个单独的 css 文件，封装一个个的变量，将来如果我某段时间百感交集时，就可以通过改变这些变量的值，达成统一修改 markdown 主题的效果，非常方便
-</div>
+                <div class="p">
+                    关于 css 样式文件，项目需要用到与主题相关的属性值，我都用一个单独的 css
+                    文件，封装一个个的变量，将来如果我某段时间百感交集时，就可以通过改变这些变量的值，达成统一修改 markdown
+                    主题的效果，非常方便
+                </div>
 
-<div class="h4">
-文件介绍：
-</div>
+                <div class="h4">
+                    文件介绍：
+                </div>
 
-<div class="blockquote">
-    <div class="p">style</div>
-    <div class="blockquote">
-        <div class="p">
-            css
+                <div class="blockquote">
+                    <div class="p">style</div>
+                    <div class="blockquote">
+                        <div class="p">
+                            css
+                        </div>
+                        <div class="blockquote">
+                            <div class="p">markdownStyle.css</div>
+                            <div class="p">varStyle.css</div>
+                            <div class="p">priorityStyle.css</div>
+                        </div>
+                        <div class="p">
+                            js
+                        </div>
+                        <div class="blockquote">
+                            <div class="p">init.js</div>
+                        </div>
+                        <div class="p">
+                            font
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p">
+                    <div class="code">style 文件夹</div>: 用于存储 css 样式和 js 脚本和一些字体
+                </div>
+
+                <div class="p">
+                    <div class="code">css 文件夹</div>：该文件夹存储三个文件：<div
+                        class="code">markdownStyle.css</div>、<div
+                        class="code">varStyle.css</div>、<div
+                        class="code">priorityStyle.css</div>，稍后会分别介绍这些文件
+                </div>
+
+                <div class="p">
+                    <div class="code">js
+                        文件夹</div>：该文件夹存储一些初始化脚本，主要用于初始化列表、块引用等模块的初始化功能
+                </div>
+
+                <div class="p">
+                    <div class="code">font 文件夹</div>：用于存储一些字体文件
+                </div>
+
+                <div class="p">
+                    <div class="code">markdownStyle.css</div>：与 markdown
+                    的主题直接有关，几乎所有配置代码都存储于此
+                </div>
+
+                <div class="p">
+                    <div class="code">varStyle.css</div>：关于 mardkwon
+                    所有有关的属性值，在这里都用变量来定义，因此，如果你觉得颜色不好看，或着字体太小或太大等等，你都可以在这个文件里面，修改相关的变量达成目的
+                </div>
+
+                <div class="p">
+                    <div class="code">priorityStyle.css</div>：该文件存储最优先展示的 css
+                    效果，不建议修改该文件
+                </div>
+
+                <div class="h2">如何使用：</div>
+
+                <div class="p">首先必须复制 <div class="strong">style</div>
+                    文件夹到你的工作目录里面</div>
+
+                <div class="p">如果你的 html 文件想使用该 css 效果，请将文件 <div
+                        class="code">varStyle.css</div>、<div
+                        class="code">priorityStyle.css</div>、<div
+                        class="code">markdownStyle.css</div> 依次链接进你的 html
+                    文件中，注意一定是依次按顺序导入！</div>
+
+                <div class="p">
+                    你的所有内容，都应该放入到<div class="ins">代码区</div>包裹着的地方，下方是一个例子：
+                </div>
+
+                <div class="img" src="./static/image/1.png"></div>
+
+                <div class="h3">标题</div>
+
+                <div class="line"></div>
+
+                <div class="p">
+                    一级标题：
+                </div>
+
+                <div class="img" src="./static/image/2.png"></div>
+                <div class="h1">这是一级标题</div>
+
+                <div class="line"></div>
+
+                <div class="p">
+                    二级标题：
+                </div>
+
+                <div class="img" src="./static/image/3.png"></div>
+
+                <div class="h2">这是二级标题</div>
+
+                <div class="line"></div>
+
+                <div class="p">
+                    三级标题：
+                </div>
+
+                <div class="img" src="./static/image/4.png"></div>
+
+                <div class="h3">这是三级标题</div>
+
+                <div class="line"></div>
+
+                <div class="p">
+                    四级标题：
+                </div>
+
+                <div class="img" src="./static/image/5.png"></div>
+                <div class="h4">这是四级标题</div>
+                <div class="line"></div>
+
+                <div class="p">
+                    五级标题：
+                </div>
+
+                <div class="img" src="./static/image/6.png"></div>
+                <div class="h5">这是五级标题</div>
+                <div class="line"></div>
+
+                <div class="p">
+                    六级标题：
+                </div>
+
+                <div class="img" src="./static/image/7.png"></div>
+                <div class="h6">这是六级标题</div>
+                <div class="line"></div>
+
+                <div class="h3">段落</div>
+
+                <div class="img" src="./static/image/8.png"></div>
+
+                <div class="p">这是一个段落</div>
+                <div class="p">这也是一个段落</div>
+
+                <div class="h3">粗体</div>
+
+                <div class="img" src="./static/image/9.png"></div>
+                <div class="p"><div class="strong">这是强调的内容</div></div>
+                <div class="img" src="./static/image/10.png"></div>
+                <div class="p">
+                    强调的内容必须在段落里面才可以强调 <div
+                        class="strong">这是强调的内容</div>，不可以用于其他地方
+                </div>
+                <div class="img" src="./static/image/22.png"></div>
+                <div class="p">
+                    <div class="strong">
+                        <div class="em">粗体可以和斜体一起用</div>
+                    </div>
+                </div>
+                <div class="h3">斜体</div>
+
+                <div class="img" src="./static/image/11.png"></div>
+                <div class="em">
+                    这是斜体的内容
+                </div>
+                <div class="img" src="./static/image/12.png"></div>
+                <div class="p">
+                    斜体的内容必须在段落里面才可以展现斜体的效果 <div class="em">这是斜体的内容</div>，不可以用于其他地方
+                </div>
+                <div class="h3">下划线</div>
+
+                <div class="img" src="./static/image/13.png"></div>
+                <div class="p"><div class="ins"> 
+                    下划线
+                </div></div>
+                <div class="img" src="./static/image/14.png"></div>
+                <div class="p">
+                    下划线的内容必须在段落里面才可以展现 <div class="ins">这是下划线的内容</div>，不可以用于其他地方
+                </div>
+                <div class="h3">删除线</div>
+
+                <div class="img" src="./static/image/15.png"></div>
+                <div class="p"><div class="del"> 
+                    删除线
+                </div></div>
+                <div class="img" src="./static/image/16.png"></div>
+                <div class="p">
+                    删除线的内容必须在段落里面才可以展现 <div class="del">这是删除线的内容</div>，不可以用于其他地方
+                </div>
+
+                <div class="h3">有序列表</div>
+
+                <div class="img" src="./static/image/17.png"></div>
+
+                <div class="p">支持嵌套，得嵌套进 div.li 标签内 </div>
+                <div class="ol">
+                    <div class="li">这是条目一</div>
+                    <div class="li">这是条目二</div>
+                    <div class="li">这是条目三</div>
+                    <div class="li">这是条目四<div class="ol">
+                        <div class="li">这是条目四的条目一</div>
+                        <div class="li">这是条目四的条目二</div>
+                        <div class="li">这是条目四的条目三</div>
+                    </div></div>
+                </div>
+                <div class="h3">无序列表</div>
+
+                <div class="img" src="./static/image/18.png"></div>
+
+                <div class="p">支持嵌套，得嵌套进 div.li 标签内 </div>
+                <div class="ul">
+                    <div class="li">这是条目一</div>
+                    <div class="li">这是条目二</div>
+                    <div class="li">这是条目三</div>
+                    <div class="li">这是条目四<div class="ul">
+                        <div class="li">这是条目四的条目一</div>
+                        <div class="li">这是条目四的条目二</div>
+                        <div class="li">这是条目四的条目三</div>
+                    </div></div>
+                <div class="h3">块引用</div>
+
+                <div class="img" src="./static/image/19.png"></div>
+                <div class="p">支持嵌套</div>
+                <div class="img" src="./static/image/23.png"></div>
+                <div class="blockquote">
+                    <div class="p">这是块引用的第一个段落</div>
+                    <div class="p">这是块引用的第二个段落</div>
+                    <div class="blockquote">
+                        <div class="p">这是块引用的第一个段落</div>
+                        <div class="p">这是块引用的第二个段落</div>
+                        <div class="p">这是块引用的第三个段落</div>
+                    </div>
+                    <div class="p">这是块引用的第三个段落</div>
+                    <div class="blockquote">
+                        <div class="p">这是块引用的第一个段落</div>
+                        <div class="p">这是块引用的第二个段落</div>
+                        <div class="p">这是块引用的第三个段落</div>
+                    </div>
+                </div>
+                <div class="h3">行内代码块</div>
+
+                <div class="img" src="./static/image/20.png"></div>
+                <div class="p"><div class="code">
+                    print("hello world")
+                </div></div>
+                <div class="img" src="./static/image/21.png"></div>
+                <div class="p">
+                    行内代码块必须在段落里面才能生效，例如：<div class="code">print("hello world")</div>
+                </div>
+                
+                <div class="p">
+                    可以对代码块加粗和倾斜，但是不推荐，例如：<div class="strong">
+                        <div class="em">
+                            <div class="code">print("hello world")</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h3">
+                    插入图片
+                </div>
+
+                <div class="img" src="./static/image/24.png"></div>
+
+                <div class="h3">分隔线</div>
+                <div class="img" src="./static/image/25.png"></div>
+                <div class="line"></div>
+                <!-- 代码区 -->
+            </div>
         </div>
-        <div class="blockquote">
-            <div class="p">markdownStyle.css</div>
-            <div class="p">varStyle.css</div>
-            <div class="p">priorityStyle.css</div>
-        </div>
-        <div class="p">
-            js
-        </div>
-        <div class="blockquote">
-            <div class="p">init.js</div>
-        </div>
-        <div class="p">
-            font
-        </div>
-    </div>
-</div>
-
-<div class="p">
-    <div class="code">style 文件夹</div>: 用于存储 css 样式和 js 脚本和一些字体
-</div>
-
-<div class="p">
-    <div class="code">css 文件夹</div>：该文件夹存储三个文件：<div class="code">markdownStyle.css</div>、<div class="code">varStyle.css</div>、<div class="code">priorityStyle.css</div>，稍后会分别介绍这些文件
-</div>
-
-<div class="p">
-    <div class="code">js 文件夹</div>：该文件夹存储一些初始化脚本，主要用于初始化列表、块引用等模块的初始化功能
-</div>
-
-<div class="p">
-    <div class="code">font 文件夹</div>：用于存储一些字体文件
-</div>
-
-<div class="p">
-    <div class="code">markdownStyle.css</div>：与 markdown 的主题直接有关，几乎所有配置代码都存储于此
-</div>
-
-<div class="p">
-    <div class="code">varStyle.css</div>：关于 mardkwon 所有有关的属性值，在这里都用变量来定义，因此，如果你觉得颜色不好看，或着字体太小或太大等等，你都可以在这个文件里面，修改相关的变量达成目的
-</div>
-
-<div class="p">
-    <div class="code">priorityStyle.css</div>：该文件存储最优先展示的 css 效果，不建议修改该文件
-</div>
-
-<div class="h2">如何使用：</div>
-
-<div class="p">首先必须复制 <div class="strong">style</div> 文件夹到你的工作目录里面</div>
-
-<div class="p">如果你的 html 文件想使用该 css 效果，请将文件 <div class="code">varStyle.css</div>、<div class="code">priorityStyle.css</div>、<div class="code">markdownStyle.css</div> 依次链接进你的 html 文件中，注意一定是依次按顺序导入！</div> 
-
-<div class="p">
-    你的所有内容，都应该放入到<div class="ins">代码区</div>包裹着的地方，下方是一个例子：
-</div>
-
-<div class="img" src="./static/image/1.png"></div>
-
-<div class="h3">标题</div>
-
-<div class="p">
-    一级标题：
-</div>
-
-<div class="img" src="./static/image/2.png"></div>
-<div class="p">
-    二级标题：
-</div>
-
-<div class="img" src="./static/image/3.png"></div>
-<div class="p">
-    三级标题：
-</div>
-
-<div class="img" src="./static/image/4.png"></div>
-<div class="p">
-    四级标题：
-</div>
-
-<div class="img" src="./static/image/5.png"></div>
-<div class="p">
-    五级标题：
-</div>
-
-<div class="img" src="./static/image/6.png"></div>
-<div class="p">
-    六级标题：
-</div>
-
-<div class="img" src="./static/image/7.png"></div>
-
-<div class="h3">段落</div>
-
-<div class="img" src="./static/image/8.png"></div>
-
-<div class="h3">粗体</div>
-
-<div class="img" src="./static/image/9.png"></div>
-
-<div class="img" src="./static/image/10.png"></div>
-
-<div class="h3">斜体</div>
-
-<div class="img" src="./static/image/11.png"></div>
-<div class="img" src="./static/image/12.png"></div>
-
-<div class="h3">下划线</div>
-
-<div class="img" src="./static/image/13.png"></div>
-<div class="img" src="./static/image/14.png"></div>
-
-<div class="h3">删除线</div>
-
-<div class="img" src="./static/image/15.png"></div>
-<div class="img" src="./static/image/16.png"></div>
-
-<div class="h3">有序列表</div>
-
-<div class="img" src="./static/image/17.png"></div>
-
-<div class="p">支持嵌套，得嵌套进 div.li 标签内 </div>
-
-<div class="h3">无序列表</div>
-
-<div class="img" src="./static/image/18.png"></div>
-
-<div class="p">支持嵌套，得嵌套进 div.li 标签内 </div>
-
-<div class="h3">块引用</div>
-
-<div class="img" src="./static/image/19.png"></div>
-
-<div class="h3">行内代码块</div>
-
-<div class="img" src="./static/image/20.png"></div>
-<div class="img" src="./static/image/21.png"></div>
-
-<!-- 代码区 -->
-</div>
-</div>
-<script type="module">
+        <script type="module">
     import {
         main
     } from "./style/js/init.js";
     main();
 </script>
-</body>
+    </body>
 </html>

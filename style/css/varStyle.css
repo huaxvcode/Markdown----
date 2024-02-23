@@ -226,3 +226,10 @@
   --img-margin-bottom: var(--margin-start-end);
   --img-margin-top: var(--margin-start-end);
 }
+
+:root {
+  --line-size: 5px;
+  --line-margin-top: var(--margin-start-end);
+  --line-margin-bottom: var(--margin-start-end);
+  --line-color: #37383a;
+}

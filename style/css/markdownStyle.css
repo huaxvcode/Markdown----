@@ -233,6 +233,11 @@
     padding: 0;
 }
 
+.ul > .li:last-child > .liContent {
+    margin-bottom: 0;
+    padding: 0;
+}
+
 .liContent > *:last-child {
     margin-bottom: 0;
 }
@@ -337,4 +342,13 @@
   width: 100%;
   margin-top: var(--img-margin-top);
   margin-bottom: var(--img-margin-bottom);
+}
+
+.line {
+  display: block;
+  background-color: var(--line-color);
+  margin-bottom: var(--line-margin-bottom);
+  margin-top: var(--line-margin-top);
+  width: 100%;
+  height: var(--line-size);
 }
