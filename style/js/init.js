@@ -103,21 +103,29 @@ let showImage = () => {
         let fun = (e) => {
             let src = e.getAttribute("src");
             if (src == null) return;
-            e.setAttribute("style", "width: 100%;");
-            let len = window.getComputedStyle(e).width;
-            len = len.substring(0, len.length - 2);
             var img = new Image();
             img.src = src;
             img.onload = () => {
                 e.style.backgroundImage = `url(${src})`;
                 let f = img.width / img.height;
-                e.style.width = Math.min(img.width, len) + "px";
-                e.style.height = Math.min(img.width, len) / f + "px";
+                e.style.width = img.width + "px";
+                let h = window.getComputedStyle(e).width;
+                h = h.substring(0, h.length - 2);
+                h = parseFloat(h) / f;
+                e.style.height = h + "px";
             };
         };
         fun(imgs[i]);
     }
 };
+
+let initTable = () => {
+    let tables = document.querySelectorAll('.table');
+    let initSingleTable = (e) => {
+        let trs = e.querySelectorAll(".tr");
+        
+    }
+}
 
 let main = () => {
     initOl();

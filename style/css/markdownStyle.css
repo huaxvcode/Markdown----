@@ -340,6 +340,7 @@
   background-size: contain;
   background-position: left;
   width: 100%;
+  max-width: 100%;
   margin-top: var(--img-margin-top);
   margin-bottom: var(--img-margin-bottom);
 }
@@ -351,4 +352,18 @@
   margin-top: var(--line-margin-top);
   width: 100%;
   height: var(--line-size);
+}
+
+.table {
+  max-width: 100%;
+}
+
+.tr {
+  display: flex;
+}
+
+.th, .tb {
+  color: white;
+  padding: 5px;
+  border: 1px solid;
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>从零开始打造 markdown 编译器</title>
+        <link rel="icon" href="./static/image/丛雨.jpg">
+        <link rel="stylesheet" href="./style/css/varStyle.css">
+        <link rel="stylesheet" href="./style/css/priorityStyle.css">
+        <link rel="stylesheet" href="./style/css/markdownStyle.css">
+    </head>
+    <body>
+        <div class="body">
+            <div class="article">
+                <!-- 代码区 -->
+                <div class="img" src="./static/image/我是废物.jpg"></div>
+                <div class="table">
+                    <div class="tr">
+                        <div class="th">姓名</div>
+                        <div class="th">性别</div>
+                        <div class="th">其他名称</div>
+                        <div class="th">登场作品</div>
+                        <div class="th">人物属性</div>
+                        <div class="th">人物外貌</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb">丛雨</div>
+                        <div class="tb">女</div>
+                        <div class="tb">ムラサメ</div>
+                        <div class="tb">《千恋万花》</div>
+                        <div class="tb">傲娇,萝莉</div>
+                        <div class="tb">绿发,红瞳</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb">朝武芳乃</div>
+                        <div class="tb">女</div>
+                        <div class="tb">ともたけ よしの</div>
+                        <div class="tb">《千恋万花》</div>
+                        <div class="tb">巫女</div>
+                        <div class="tb">蓝瞳,白发,双马尾</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb">蕾娜·列支敦瑙尔</div>
+                        <div class="tb">女</div>
+                        <div class="tb">レナ・リヒテナウアー</div>
+                        <div class="tb">《千恋万花》</div>
+                        <div class="tb">元气,天然</div>
+                        <div class="tb">金发,紫瞳,双马尾,巨乳</div>
+                    </div>
+                    <div class="tr">
+                        <div class="tb">常陆茉子</div>
+                        <div class="tb">女</div>
+                        <div class="tb">常陸茉子</div>
+                        <div class="tb">《千恋万花》</div>
+                        <div class="tb">忍者,腹黑</div>
+                        <div class="tb">黑发,绿瞳</div>
+                    </div>
+                </div>
+                <!-- 代码区 -->
+            </div>
+        </div>
+        <script type="module">
+    import {
+        main
+    } from "./style/js/init.js";
+    main();
+</script>
+    </body>
+</html>
