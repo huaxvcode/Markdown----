@@ -262,3 +262,36 @@
   --tb-bgc: rgba(0, 0, 0, 0);
   box-sizing: border-box;
 }
+
+:root {
+  --admonition-border: 1px solid;
+  --admonition-border-radius: 5px;
+  --admonition-title-bgc: rgba(0, 0, 0, 0.7);
+  --admonition-content-bgc: var(--article-bgc);
+}
+
+:root {
+  --admonition-note-color: #448AFF;
+
+  --admonition-abstract-color: #00B0FF;
+
+  --admonition-info-color: #00B8D4;
+
+  --admonition-tip-color: #00BFA5;
+
+  --admonition-success-color: #00C853;
+
+  --admonition-question-color: #64DD17;
+
+  --admonition-warning-color: #FF9100;
+
+  --admonition-failure-color: #FF5252;
+
+  --admonition-danger-color: #FF1744;
+
+  --admonition-bug-color: #F50057;
+
+  --admonition-example-color: #7C4DFF;
+
+  --admonition-quote-color: #9E9E9E;
+}

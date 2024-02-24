@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   font-family: 'FiraCode', '微软雅黑';
+  /* 实现英文自动换行 */
+  word-break:break-all; 
 }
 
 .body {
@@ -418,4 +420,110 @@
 
 .trSonContent {
   width: 100%;
+}
+
+.admonition {
+  margin-top: var(--margin-start-end);
+  margin-bottom: var(--margin-start-end);
+  width: 100%;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  border: var(--admonition-border);
+  border-radius: var(--admonition-border-radius);
+}
+
+.admonition > .title {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 0;
+  border-radius: var(--admonition-border-radius) var(--admonition-border-radius) 0 0;
+  background-color: var(--admonition-title-bgc);
+}
+
+.admonition > .content {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--admonition-content-bgc);
+  border-top: 0;
+  border-radius: 0 0 var(--admonition-border-radius) var(--admonition-border-radius);
+}
+
+.admonition > .title > *:first-child {
+  padding-top: 0;
+  margin-top: 0;
+}
+.admonition > .title > *:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.admonition > .content > *:first-child {
+  padding-top: 0;
+  margin-top: 0;
+}
+.admonition > .content > *:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.admonition.note {
+  background-color: var(--admonition-note-color);
+  border-color: var(--admonition-note-color);
+}
+
+.admonition.abstract {
+  background-color: var(--admonition-abstract-color);
+  border-color: var(--admonition-abstract-color);
+}
+
+.admonition.info {
+  background-color: var(--admonition-info-color);
+  border-color: var(--admonition-info-color);
+}
+
+.admonition.tip {
+  background-color: var(--admonition-tip-color);
+  border-color: var(--admonition-tip-color);
+}
+
+.admonition.success {
+  background-color: var(--admonition-success-color);
+  border-color: var(--admonition-success-color);
+}
+
+.admonition.question {
+  background-color: var(--admonition-question-color);
+  border-color: var(--admonition-question-color);
+}
+
+.admonition.warning {
+  background-color: var(--admonition-warning-color);
+  border-color: var(--admonition-warning-color);
+}
+
+.admonition.failure {
+  background-color: var(--admonition-failure-color);
+  border-color: var(--admonition-failure-color);
+}
+
+.admonition.danger {
+  background-color: var(--admonition-danger-color);
+  border-color: var(--admonition-danger-color);
+}
+
+.admonition.bug {
+  background-color: var(--admonition-bug-color);
+  border-color: var(--admonition-bug-color);
+}
+
+.admonition.example {
+  background-color: var(--admonition-example-color);
+  border-color: var(--admonition-example-color);
+}
+
+.admonition.quote {
+  background-color: var(--admonition-quote-color);
+  border-color: var(--admonition-quote-color);
 }
