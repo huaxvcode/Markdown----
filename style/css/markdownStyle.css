@@ -443,7 +443,39 @@
   background-color: var(--admonition-title-bgc);
 }
 
+.admonition > .title > .content {
+  flex-grow: 1;
+}
+
+.admonition > .title > .content > *:first-child {
+  padding-top: 0;
+  margin-top: 0;
+}
+.admonition > .title > .content > *:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.admonition > .title > .icon, .admonition > .title > .button {
+  /* 不允许占用剩余空间 */
+  flex-grow: 0;
+  /* 不允许空间不足时自动压缩 */
+  flex-shrink: 0; 
+  width: var(--admonition-title-icon-width);
+  height: var(--admonition-title-icon-height);
+  margin-top: calc((var(--p-font-size) * var(--p-line-height) - var(--admonition-title-icon-width)) / 2);
+}
+
+.admonition > .title > .icon {
+  margin-right: 5px;
+}
+.admonition > .title > .button {
+  margin-left: 10px;
+  transition: all 250ms;
+}
+
 .admonition > .content {
+  overflow: hidden;
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
@@ -452,14 +484,6 @@
   border-radius: 0 0 var(--admonition-border-radius) var(--admonition-border-radius);
 }
 
-.admonition > .title > *:first-child {
-  padding-top: 0;
-  margin-top: 0;
-}
-.admonition > .title > *:last-child {
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
 .admonition > .content > *:first-child {
   padding-top: 0;
   margin-top: 0;

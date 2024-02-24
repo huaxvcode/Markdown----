@@ -295,3 +295,8 @@
 
   --admonition-quote-color: #9E9E9E;
 }
+
+:root {
+  --admonition-title-icon-width: 24px;  
+  --admonition-title-icon-height: 24px;  
+}
