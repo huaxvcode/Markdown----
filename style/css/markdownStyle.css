@@ -218,10 +218,13 @@
 
 .liContent {
   display: block;
+  margin-bottom: var(--li-margin-bottom);
+}
+
+.liContent > .p {
   line-height: var(--li-font-height);
   font-size: var(--li-font-size);
   color: var(--li-font-color);
-  margin-bottom: var(--li-margin-bottom);
 }
 
 .ol,
@@ -244,9 +247,10 @@
     margin-bottom: 0;
 }
 
-/* .liContent > *:first-child {
+.liContent > *:first-child {
     margin-top: 0;
-} */
+    padding-top: 0;
+}
 
 .nextLine {
   height: var(--nextLine-height);
