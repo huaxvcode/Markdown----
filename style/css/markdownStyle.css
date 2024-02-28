@@ -556,3 +556,12 @@
   background-color: var(--admonition-quote-color);
   border-color: var(--admonition-quote-color);
 }
+
+.codeBlock pre code {
+  border-radius: 8px;
+}
+
+.codeBlock {
+  margin-top: var(--margin-start-end);
+  margin-bottom: var(--margin-start-end);
+}

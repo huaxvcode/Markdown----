@@ -250,6 +250,26 @@ let buttonDetails = () => {
     }
 };
 
+let codeBlock = () => {
+    let cbs = document.querySelectorAll(".codeBlock");
+    let deal = (e) => {
+        let s = e.innerHTML;
+        // let reg = /<!--.*?\n(.*)\n.*?-->/gs;
+        // s = reg.exec(s)[1];
+        // s = s.replace(/&/g, '&amp;')
+        // s = s.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+        // s = s.replace(/ /g, '&nbsp;')
+        // s = s.replace(/</g, '&lt;')
+        // s = s.replace(/>/g, '&gt;')
+        // s = s.replace(/"/g, '&quot;')
+        console.log(s);
+        e.innerHTML = `<pre><code class="${e.getAttribute("lang")}">${s}</code></pre>`
+    };
+    for (let i = 0; i < cbs.length; i ++) {
+        deal(cbs[i]);
+    }
+};
+
 let main = () => {
     initOl();
     initUl();
@@ -258,6 +278,7 @@ let main = () => {
     initTable();
     initAdmonition();
     buttonDetails();
+    codeBlock();
     window.onresize = () => {
         showImage();
     };
